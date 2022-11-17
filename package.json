@@ -1,0 +1,26 @@
+{
+  "name": "sit725_2022_t3_prac2",
+  "version": "1.0.0",
+  "description": "SIT725 Practicals",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuroimi/SIT725_2022_T3_Prac2.git"
+  },
+  "keywords": [
+    "Express",
+    "Node"
+  ],
+  "author": "SIYU AI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuroimi/SIT725_2022_T3_Prac2/issues"
+  },
+  "homepage": "https://github.com/kuroimi/SIT725_2022_T3_Prac2#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
