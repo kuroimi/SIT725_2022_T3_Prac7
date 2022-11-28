@@ -1,41 +1,97 @@
-.navbar-size {​
+const cardList = [
 
-    width: 95%;​
+    {
 
-    margin: 0 auto;​
+        title: "Kitten 2",
 
-}​
+        image: "images/image-outline-filled.png",
 
-.user-image-size {​
+        link: "About Kitten 2",
 
-    height: 56px;​
+        desciption: "Demo desciption about kitten 2"
 
-    margin: 4px 0;​
+    },
 
-}​
+    {
 
-.main-body {​
+        title: "Kitten 3",
 
-    background-color: #F28487;​
+        image: "images/image-outline-filled.png",
 
-    color: white;​
+        link: "About Kitten 3",
 
-    height: calc(100vh - 64px);​
+        desciption: "Demo desciption about kitten 3"
 
-}​
+    }
 
-.materialboxed-image {​
+]
 
-    margin: 0 auto;​
+const clickMe = () => {
 
-    height: 400px;​
+    alert("Thanks for clicking me. Hope you have a nice day!")
 
-}​
+}
 
-.click-me-button {​
 
-    background-color: #EE6E73;​
 
-    margin-top: 50px;​
+const submitForm = () => {
 
-}​
+    let formData = {};
+
+    formData.first_name = $('#first_name').val();
+
+    formData.last_name = $('#last_name').val();
+
+    formData.password = $('#password').val();
+
+    formData.email = $('#email').val();
+
+
+
+    console.log("Form Data Submitted: ", formData);
+
+}
+
+
+
+const addCards = (items) => {
+
+    items.forEach(item => {
+
+        let itemToAppend = '<div class="col s4 center-align">'+
+
+    '<div class="card medium"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="'+item.image+'">'+
+
+    '</div><div class="card-content">'+
+
+    '<span class="card-title activator grey-text text-darken-4">'+item.title+'<i class="material-icons right">more_vert</i></span><p><a href="#">'+item.link+'</a></p></div>'+
+
+    '<div class="card-reveal">'+
+
+        '<span class="card-title grey-text text-darken-4">'+item.title+'<i class="material-icons right">close</i></span>'+
+
+        '<p class="card-text">'+item.desciption+'</p>'+
+
+      '</div></div></div>';
+
+      $("#card-section").append(itemToAppend)
+
+    });
+
+}
+
+$(document).ready(function(){
+
+    $('.materialboxed').materialbox();
+
+    $('#formSubmit').click(()=>{
+
+        submitForm();
+
+    })
+
+    addCards(cardList);
+
+    $('.modal').modal();
+
+  });
