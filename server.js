@@ -6,6 +6,10 @@ var cors = require('cors')
 
 let projectCollection;
 
+let http = require('http').createServer(app);
+
+let io = require('socket.io')(http);
+
 app.use(express.static(__dirname+'/public'))
 
 app.use(express.json());
@@ -101,13 +105,21 @@ app.get('/api/projects',(req,res) => {
 
 })
 
-
-
-var port = process.env.port || 3000;
-
-app.listen(port,()=>{
+http.listen(port,()=>{
     
     console.log("App listening to: http://localhost:"+port)
     createCollection('Pets')
     
 })
+
+io.on("connection", (socket) => {
+    console.log("a user connected");
+    socket.on("disconnect", () => {
+      console.log("user disconnected");
+    });
+    setInterval(() => {
+      socket.emit("number", parseInt(Math.random() * 10));
+    }, 1000);
+  });
+
+var port = process.env.port || 3000;
